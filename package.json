@@ -11,7 +11,12 @@
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "fmap": "node packages/core/dist/cli.js",
-    "publish-all": "scripts/publish.sh"
+    "release": "tsx scripts/release.ts",
+    "publish-all": "tsx scripts/publish.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.22.0",
+    "typescript": "^5.4.0"
   },
   "engines": {
     "node": ">=18"
