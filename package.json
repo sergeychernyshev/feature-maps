@@ -11,6 +11,7 @@
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "fmap": "node packages/core/dist/cli.js",
+    "fmap:scan": "node packages/core/dist/cli.js scan",
     "release": "tsx scripts/release.ts",
     "publish-all": "tsx scripts/publish.ts"
   },
