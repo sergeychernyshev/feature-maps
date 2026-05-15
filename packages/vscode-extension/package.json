@@ -2,12 +2,15 @@
   "name": "feature-maps-vscode",
   "displayName": "Feature Maps",
   "description": "Show feature requirements inline in your code, powered by feature-maps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "feature-maps",
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": ["Other", "Visualization"],
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
   "activationEvents": [
     "onStartupFinished"
   ],
