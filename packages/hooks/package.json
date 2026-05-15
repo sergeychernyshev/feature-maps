@@ -19,6 +19,18 @@
   },
   "files": [
     "dist",
-    "scripts"
-  ]
+    "scripts",
+    "LICENSE",
+    "README.md"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeychernyshev/feature-maps.git",
+    "directory": "packages/hooks"
+  },
+  "bugs": {
+    "url": "https://github.com/sergeychernyshev/feature-maps/issues"
+  },
+  "homepage": "https://github.com/sergeychernyshev/feature-maps/tree/main/packages/hooks#readme"
 }

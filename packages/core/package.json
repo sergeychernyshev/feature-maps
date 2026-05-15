@@ -27,6 +27,17 @@
   },
   "files": [
     "dist",
-    "README.md"
-  ]
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeychernyshev/feature-maps.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/sergeychernyshev/feature-maps/issues"
+  },
+  "homepage": "https://github.com/sergeychernyshev/feature-maps/tree/main/packages/core#readme"
 }

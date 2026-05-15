@@ -68,5 +68,15 @@
     "@types/node": "^20.11.0",
     "@types/vscode": "^1.85.0",
     "typescript": "^5.4.0"
-  }
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeychernyshev/feature-maps.git",
+    "directory": "packages/vscode-extension"
+  },
+  "bugs": {
+    "url": "https://github.com/sergeychernyshev/feature-maps/issues"
+  },
+  "homepage": "https://github.com/sergeychernyshev/feature-maps/tree/main/packages/vscode-extension#readme"
 }
