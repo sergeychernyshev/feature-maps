@@ -1,0 +1,24 @@
+{
+  "name": "@feature-maps/hooks",
+  "version": "0.1.0",
+  "description": "Claude Code hooks that record agent sessions and summarize them into feature maps",
+  "main": "dist/index.js",
+  "bin": {
+    "fmap-record": "dist/record.js",
+    "fmap-summarize": "dist/summarize.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@feature-maps/core": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.4.0"
+  },
+  "files": [
+    "dist",
+    "scripts"
+  ]
+}
