@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+
+# Generated artifacts: keep declarative .featuremap/*.featuremap.yaml
+# checked in, ignore generated outputs and recorded sessions.
+.featuremap/feature-map.json
+.featuremap/feature-map.json.map
+.featuremap/sessions/

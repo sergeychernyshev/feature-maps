@@ -1,0 +1,72 @@
+{
+  "name": "feature-maps-vscode",
+  "displayName": "Feature Maps",
+  "description": "Show feature requirements inline in your code, powered by feature-maps",
+  "version": "0.1.0",
+  "publisher": "feature-maps",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other", "Visualization"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "featureMaps.refresh",
+        "title": "Feature Maps: Refresh"
+      },
+      {
+        "command": "featureMaps.scan",
+        "title": "Feature Maps: Scan project"
+      },
+      {
+        "command": "featureMaps.showCoverage",
+        "title": "Feature Maps: Show coverage report"
+      },
+      {
+        "command": "featureMaps.openRequirement",
+        "title": "Feature Maps: Open requirement"
+      }
+    ],
+    "configuration": {
+      "title": "Feature Maps",
+      "properties": {
+        "featureMaps.mapPath": {
+          "type": "string",
+          "default": ".featuremap/feature-map.json",
+          "description": "Path (relative to workspace root) of the generated feature map JSON."
+        },
+        "featureMaps.autoScan": {
+          "type": "boolean",
+          "default": false,
+          "description": "Run `fmap scan` automatically when files are saved."
+        },
+        "featureMaps.showGutter": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show gutter icons next to lines mapped to a requirement."
+        }
+      }
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "featureMapsRequirements",
+          "name": "Feature Map Requirements"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "vscode:prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0"
+  }
+}

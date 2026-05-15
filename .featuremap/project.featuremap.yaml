@@ -1,0 +1,44 @@
+version: 1
+mappings:
+  - id: FMAP-001
+    files:
+      - packages/core/src/cli.ts
+      - packages/core/src/mapper.ts
+      - packages/core/src/scanner.ts
+      - packages/core/src/requirements.ts
+      - packages/core/src/featuremap-files.ts
+
+  - id: FMAP-002
+    files:
+      - packages/core/src/sourcemap.ts
+
+  - id: FMAP-003
+    files:
+      - packages/core/src/coverage.ts
+    ranges:
+      - file: packages/core/src/cli.ts
+        lines: 50-90
+        symbol: coverage command
+
+  - id: FMAP-004
+    files:
+      - packages/vscode-extension/src/extension.ts
+      - packages/vscode-extension/package.json
+
+  - id: FMAP-005
+    files:
+      - packages/hooks/src/record.ts
+      - packages/hooks/src/transcript.ts
+      - packages/hooks/scripts/install-claude-hooks.sh
+
+  - id: FMAP-006
+    files:
+      - packages/hooks/src/summarize.ts
+
+  - id: FMAP-007
+    files:
+      - packages/hooks/scripts/pre-commit.sh
+
+  - id: AGENT-001
+    files:
+      - AGENTS.md

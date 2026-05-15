@@ -1,0 +1,12 @@
+{
+  "ignoreGlobs": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.git/**",
+    "**/coverage/**",
+    "**/*.featuremap.*",
+    "**/.featuremap/**",
+    "**/.featuremap/sessions/**"
+  ]
+}
