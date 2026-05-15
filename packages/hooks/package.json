@@ -4,11 +4,13 @@
   "description": "Claude Code hooks that record agent sessions and summarize them into feature maps",
   "main": "dist/index.js",
   "bin": {
+    "hooks": "dist/cli.js",
     "fmap-record": "dist/record.js",
     "fmap-summarize": "dist/summarize.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.test.json && node --test test-dist/cli.test.js"
   },
   "dependencies": {
     "@feature-maps/core": "0.1.1"
@@ -19,7 +21,6 @@
   },
   "files": [
     "dist",
-    "scripts",
     "LICENSE",
     "README.md"
   ],

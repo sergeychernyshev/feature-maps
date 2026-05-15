@@ -26,17 +26,26 @@ Pulls in `@feature-maps/core` automatically (exact-version match).
 
 ## Wire it up
 
-The packaged installer writes the right entries to `.claude/settings.json`:
+From the root of your project (no install needed):
 
 ```bash
-bash node_modules/@feature-maps/hooks/scripts/install-claude-hooks.sh
+npx @feature-maps/hooks install
 ```
 
-It registers:
+That writes idempotent entries to `<project>/.claude/settings.json`:
 
 - A **Stop** hook → `fmap-record` (captures each finished assistant turn).
 - A **SessionEnd** hook → `fmap-record` (ingests the full transcript) then
   `fmap-summarize --markEnded` then `fmap scan` (regenerates the global map).
+
+Other forms:
+
+```bash
+npx @feature-maps/hooks install --precommit   # also install .git/hooks/pre-commit
+npx @feature-maps/hooks install --root <dir>  # target a different project root
+npx @feature-maps/hooks uninstall             # remove what install added
+npx @feature-maps/hooks --help                # full usage
+```
 
 The net effect: every Claude Code session leaves behind a `requirements/`
 doc and a paired feature map, both regenerated into the global map, all
@@ -105,13 +114,17 @@ fmap-summarize --root <dir>               # alternate project root
 
 ## Git pre-commit hook
 
-The package also ships a pre-commit hook that regenerates the feature map
-on every commit and stages it, so the map never drifts from the code:
+Optional companion hook that regenerates the feature map on every commit
+and stages it, so the map never drifts from the code:
 
 ```bash
-ln -s ../../node_modules/@feature-maps/hooks/scripts/pre-commit.sh .git/hooks/pre-commit
-chmod +x .git/hooks/pre-commit
+npx @feature-maps/hooks install --precommit
 ```
+
+This writes `.git/hooks/pre-commit` (backing up any existing one to
+`pre-commit.bak`). The installed hook is a thin Node dispatcher that calls
+`npx @feature-maps/hooks pre-commit`, whose body is implemented in this
+package. Remove it with `npx @feature-maps/hooks uninstall --precommit`.
 
 ## Programmatic API
 

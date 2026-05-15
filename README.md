@@ -59,13 +59,13 @@ Settings:
 
 ## Claude Code integration
 
-Two hooks, installed by:
+Two hooks, installed from the root of any project:
 
 ```bash
-bash packages/hooks/scripts/install-claude-hooks.sh
+npx @feature-maps/hooks install
 ```
 
-This writes to `.claude/settings.json`:
+This writes to `<project>/.claude/settings.json`:
 
 - **Stop hook** → `fmap-record` appends each finished assistant turn to `.featuremap/sessions/<session-id>.jsonl`.
 - **SessionEnd hook** → `fmap-record` ingests Claude Code's full transcript (covers anything Stop missed in long sessions), then `fmap-summarize --markEnded` distills the session into:
@@ -78,11 +78,10 @@ Set `ANTHROPIC_API_KEY` to use Claude for summarization (model defaults to `clau
 ## Git pre-commit hook
 
 ```bash
-ln -s ../../packages/hooks/scripts/pre-commit.sh .git/hooks/pre-commit
-chmod +x .git/hooks/pre-commit
+npx @feature-maps/hooks install --precommit
 ```
 
-Regenerates the feature map on every commit and stages it, so the map can never drift from the code.
+Regenerates the feature map on every commit and stages it, so the map can never drift from the code. Remove with `npx @feature-maps/hooks uninstall --precommit`.
 
 ## Configuration (`.featuremaprc.json`)
 
