@@ -56,14 +56,21 @@ run() {
 }
 
 pkg_version() {
-  node -p "require('$1/package.json').version"
+  node -p "require('./$1/package.json').version"
 }
 
 # Refuse to publish from a dirty tree — too easy to ship local debug edits.
+# In --dry-run we only warn, since nothing actually ships.
 if [[ -n "$(git status --porcelain)" ]]; then
-  echo "error: working tree has uncommitted changes. Commit or stash first." >&2
-  git status --short >&2
-  exit 1
+  if [[ $DRY_RUN -eq 1 ]]; then
+    echo "warning: working tree has uncommitted changes (continuing because --dry-run):" >&2
+    git status --short >&2
+    echo >&2
+  else
+    echo "error: working tree has uncommitted changes. Commit or stash first." >&2
+    git status --short >&2
+    exit 1
+  fi
 fi
 
 CORE_VERSION="$(pkg_version packages/core)"
