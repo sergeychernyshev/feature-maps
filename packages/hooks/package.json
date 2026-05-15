@@ -1,6 +1,6 @@
 {
   "name": "@feature-maps/hooks",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Claude Code hooks that record agent sessions and summarize them into feature maps",
   "main": "dist/index.js",
   "bin": {
