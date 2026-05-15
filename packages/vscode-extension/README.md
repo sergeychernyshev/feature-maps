@@ -39,6 +39,21 @@ CLI.
 | `Feature Maps: Show coverage report` | Open the coverage panel. |
 | `Feature Maps: Open requirement` | Quick-pick requirements; jump to source. |
 
+All commands are also available via the Command Palette (`Cmd/Ctrl+Shift+P`).
+
+## Coverage panel
+
+The coverage panel (status-bar click or `Feature Maps: Show coverage report`)
+shows:
+
+- **Overall coverage** — percentage of requirements with at least one mapping.
+- **Per-requirement status** — mapped (file count), unmapped, or orphan
+  references — sortable and filterable.
+- **Top files by requirement density** — useful for spotting code that's
+  under-documented or doing too many jobs.
+
+Click any row to jump to the requirement's source markdown.
+
 ## Settings
 
 ```jsonc

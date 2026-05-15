@@ -48,6 +48,32 @@ Common options on every command:
 
 Override the globs in `.featuremaprc.json` at the project root.
 
+## Declarative feature map example
+
+A `.featuremap.yaml` file binds requirement IDs to file ranges without
+touching the source:
+
+```yaml
+# .featuremap/auth.featuremap.yaml
+version: 1
+mappings:
+  - requirement: REQ-101
+    files:
+      - path: src/login.ts
+        ranges: [[12, 48]]
+      - path: src/session.ts
+        ranges: [[1, 9], [22, 22]]
+  - requirement: REQ-102
+    files:
+      - path: src/login.ts
+        ranges: [[50, 78]]
+```
+
+- `ranges` are inclusive `[startLine, endLine]` pairs (1-indexed).
+- Multiple files per requirement, multiple ranges per file.
+- A single requirement can be split across many feature-map files; they're
+  merged at scan time.
+
 ## Output
 
 `fmap scan` writes two files:
