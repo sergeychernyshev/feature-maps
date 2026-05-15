@@ -10,7 +10,8 @@
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
-    "fmap": "node packages/core/dist/cli.js"
+    "fmap": "node packages/core/dist/cli.js",
+    "publish-all": "scripts/publish.sh"
   },
   "engines": {
     "node": ">=18"
